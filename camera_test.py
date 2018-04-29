@@ -28,9 +28,9 @@ def image_acq():
 	camera.stop_preview()
 
 	date = dt.datetime.now().strftime('%Y_%m_%d_%h_%m_%s')
-	image_name = '/home/pi/sd/data/' + date 
+	image_name = '/home/pi/Urinalysis_Rpi/data/test.png' 
 	rgb_file = open(image_name+'_rgb.data', 'w+b')
-	camera.capture(image_name+ '.png',) 
+	camera.capture(image_name) 
 	print("picture captured as: " + image_name)
 	#camera.capture(rgb_file, 'rgb')
 	#fwidth = (width + 31) // 32*32
@@ -40,7 +40,7 @@ def image_acq():
 	with picamera.array.PiRGBArray(camera) as output:
 		camera.capture(output, 'rgb')
 		print('captured %d%d image' % (output.array.shape[1], output.array.shape[0]))
-		print(output.array)
+#		print(output.array)
 		rgb_file.write(output.array)
 	#print(image))
 	sleep(5)

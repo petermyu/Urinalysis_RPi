@@ -20,13 +20,14 @@ from skimage import io
 from skimage.data import camera
 from skimage.filters import roberts, sobel, scharr, prewitt
 
-def image_analysis:
+def image_analysis():
+
 	# (1) Import the file to be analyzed!
-	Directory = '/Users/frederikbelz/Desktop/2 LEDs & Constant Positioning/'
-	Test_Name = 'trial2-8_400.png'
+	Directory = '/home/pi/Urinalysis_Rpi/data/'
+	Test_Name = 'test.png'
 
 	Path = Directory + Test_Name
-
+	print('path is ' + Path)
 	#Collects average values from all the 
 	Data = pd.DataFrame(columns=['Red Avg','Green Avg', 'Blue Avg'])
 	Data1 = pd.DataFrame()
@@ -164,36 +165,37 @@ def image_analysis:
 	#a.columns = ['Red Avg','Green Avg', 'Blue Avg']
 
 	#Data = Data.append(a, ignore_index = True)
+	print('Data:' )
 	print(Data)
 		#save = Folder + str(path)[58:]
 		#img_file.save(save)
 
-	gs = gridspec.GridSpec(3,1)
-	plt.figure(figsize=(12,12))
-	ax = plt.subplot(gs[0,0])
-	plt.plot([x[1] for x in Data1['Name']],Data1['Red Avg'], color='red')
-	plt.xlabel('Smallest Dimesion (pixel)')
-	plt.ylabel('Red Intensity')
-	plt.title('Trial ' + Test_Name[5] + ' - ' + Test_Name[9:-4] + ' mg/L - Red Avg')
+#	gs = gridspec.GridSpec(3,1)
+#	plt.figure(figsize=(12,12))
+#	ax = plt.subplot(gs[0,0])
+#	plt.plot([x[1] for x in Data1['Name']],Data1['Red Avg'], color='red')
+#	plt.xlabel('Smallest Dimesion (pixel)')
+#	plt.ylabel('Red Intensity')
+#	plt.title('Trial ' + Test_Name[5] + ' - ' + Test_Name[9:-4] + ' mg/L - Red Avg')
 
 
-	ax = plt.subplot(gs[1,0])
-	plt.plot([x[1] for x in Data1['Name']],Data1['Blue Avg'], color='blue')
-	plt.xlabel('Smallest Dimesion (pixel)')
-	plt.ylabel('Blue Intensity')
-	plt.title('Trial ' + Test_Name[5] + ' - ' + Test_Name[9:-4] + ' mg/L - Blue Avg')
+#	ax = plt.subplot(gs[1,0])
+#	plt.plot([x[1] for x in Data1['Name']],Data1['Blue Avg'], color='blue')
+#	plt.xlabel('Smallest Dimesion (pixel)')
+#	plt.ylabel('Blue Intensity')
+#	plt.title('Trial ' + Test_Name[5] + ' - ' + Test_Name[9:-4] + ' mg/L - Blue Avg')
 
 
-	ax = plt.subplot(gs[2,0])
-	plt.plot([x[1] for x in Data1['Name']],Data1['Green Avg'], color='green')
-	plt.xlabel('Smallest Dimesion (pixel)')
-	plt.ylabel('Green Intensity')
-	plt.title('Trial ' + Test_Name[5] + ' - ' + Test_Name[9:-4] + ' mg/L - Green Avg')
+#	ax = plt.subplot(gs[2,0])
+#	plt.plot([x[1] for x in Data1['Name']],Data1['Green Avg'], color='green')
+#	plt.xlabel('Smallest Dimesion (pixel)')
+#	plt.ylabel('Green Intensity')
+#	plt.title('Trial ' + Test_Name[5] + ' - ' + Test_Name[9:-4] + ' mg/L - Green Avg')
+#
+#	plt.tight_layout()
+#	plt.savefig(Path[:-4] + 'Graph.png')
 
-	plt.tight_layout()
-	plt.savefig(Path[:-4] + 'Graph.png')
-
-	plt.clf()
+#	plt.clf()
 
 	#Red Pixel Average
 	Red    = Data
